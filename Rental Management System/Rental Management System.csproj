@@ -92,6 +92,12 @@
     <Content Include="Models\RentalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentalModel.Context.cs</LastGenOutput>
+      <DependentUpon>RentalModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\RentalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RentalModel.edmx</DependentUpon>
+      <LastGenOutput>RentalModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -100,26 +106,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ad.cs">
+      <DependentUpon>RentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Address.cs">
+      <DependentUpon>RentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>RentalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RentalModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RentalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RentalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RentalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RentalModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RentalModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Specification.cs">
+      <DependentUpon>RentalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>RentalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\RentalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RentalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\RentalModel.edmx.diagram">
+    <Content Include="Models\RentalModel.edmx.diagram">
       <DependentUpon>RentalModel.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
