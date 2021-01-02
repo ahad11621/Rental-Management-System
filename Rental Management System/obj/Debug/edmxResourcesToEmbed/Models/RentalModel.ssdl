@@ -21,7 +21,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="SpecId" Type="int" Nullable="false" />
     <Property Name="AddressId" Type="int" Nullable="false" />
-    <Property Name="Satus" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Availability" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Messages">

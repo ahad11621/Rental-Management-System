@@ -18,7 +18,7 @@ namespace Rental_Management_System.Models
         public int UserId { get; set; }
         public int SpecId { get; set; }
         public int AddressId { get; set; }
-        public int Satus { get; set; }
+        public int Status { get; set; }
         public int Availability { get; set; }
     
         public virtual Address Address { get; set; }

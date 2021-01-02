@@ -26,7 +26,7 @@
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="SpecId" Type="int" Nullable="false" />
           <Property Name="AddressId" Type="int" Nullable="false" />
-          <Property Name="Satus" Type="int" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Availability" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Messages">
@@ -214,7 +214,7 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="SpecId" Type="Int32" Nullable="false" />
           <Property Name="AddressId" Type="Int32" Nullable="false" />
-          <Property Name="Satus" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Availability" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Address" Relationship="Self.FK_Ads_Addresses" FromRole="Ads" ToRole="Addresses" />
           <NavigationProperty Name="Specification" Relationship="Self.FK_Ads_Specifications" FromRole="Ads" ToRole="Specifications" />
@@ -411,7 +411,7 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="SpecId" ColumnName="SpecId" />
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
-                <ScalarProperty Name="Satus" ColumnName="Satus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Availability" ColumnName="Availability" />
               </MappingFragment>
             </EntityTypeMapping>

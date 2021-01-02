@@ -24,7 +24,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="SpecId" Type="Int32" Nullable="false" />
     <Property Name="AddressId" Type="Int32" Nullable="false" />
-    <Property Name="Satus" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="Availability" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Address" Relationship="Self.FK_Ads_Addresses" FromRole="Ads" ToRole="Addresses" />
     <NavigationProperty Name="Specification" Relationship="Self.FK_Ads_Specifications" FromRole="Ads" ToRole="Specifications" />

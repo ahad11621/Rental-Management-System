@@ -91,8 +91,8 @@
     <Content Include="Global.asax" />
     <Content Include="Models\RentalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RentalModel.Context.cs</LastGenOutput>
       <DependentUpon>RentalModel.edmx</DependentUpon>
+      <LastGenOutput>RentalModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\RentalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -112,6 +112,7 @@
     <Compile Include="Models\Address.cs">
       <DependentUpon>RentalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Message.cs">
       <DependentUpon>RentalModel.tt</DependentUpon>
     </Compile>

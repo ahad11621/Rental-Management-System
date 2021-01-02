@@ -22,7 +22,7 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="SpecId" ColumnName="SpecId" />
           <ScalarProperty Name="AddressId" ColumnName="AddressId" />
-          <ScalarProperty Name="Satus" ColumnName="Satus" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Availability" ColumnName="Availability" />
         </MappingFragment>
       </EntityTypeMapping>
