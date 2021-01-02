@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="AddressId" />
     </Key>
-    <Property Name="AddressId" Type="Int32" Nullable="false" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Raod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="House" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Floor" Type="Int32" />

@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="AddressId" />
     </Key>
-    <Property Name="AddressId" Type="int" Nullable="false" />
+    <Property Name="AddressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Raod" Type="nvarchar(max)" />
     <Property Name="House" Type="nvarchar(max)" />
     <Property Name="Floor" Type="int" />
