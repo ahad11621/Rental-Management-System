@@ -10,9 +10,9 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace Inventory_Rest_API.Attributes
+namespace Rental_Management_System.Attributes
 {
-    public class BasicAuthenticationAttribute: AuthorizationFilterAttribute
+    public class UserAuthenticationAttribute: AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {

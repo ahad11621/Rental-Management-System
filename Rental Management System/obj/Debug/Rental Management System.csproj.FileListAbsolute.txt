@@ -46,3 +46,6 @@ D:\asp.NET\Final\Rental-Management-System\Rental Management System\bin\Microsoft
 D:\asp.NET\Final\Rental-Management-System\Rental Management System\obj\Debug\Rental Management System.csproj.CopyComplete
 D:\asp.NET\Final\Rental-Management-System\Rental Management System\obj\Debug\Rental Management System.dll
 D:\asp.NET\Final\Rental-Management-System\Rental Management System\obj\Debug\Rental Management System.pdb
+D:\asp.NET\Final\Rental-Management-System\Rental Management System\bin\System.Web.Cors.dll
+D:\asp.NET\Final\Rental-Management-System\Rental Management System\bin\System.Web.Http.Cors.dll
+D:\asp.NET\Final\Rental-Management-System\Rental Management System\bin\System.Web.Http.Cors.xml
