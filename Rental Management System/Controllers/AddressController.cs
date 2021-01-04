@@ -16,7 +16,7 @@ namespace Rental_Management_System.Controllers
 
         //Show all Address
         [Route("")]
-        public IHttpActionResult Get() //Get all Ad
+        public IHttpActionResult Get()
         {
             return Ok(addressRepo.GetAll());
         }
@@ -25,13 +25,13 @@ namespace Rental_Management_System.Controllers
         [Route("{id}", Name = "GetAddressById")]
         public IHttpActionResult Get(int id)
         {
-            //BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
+            BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
             var address = addressRepo.Get(id);
             if (address == null)
             {
                 return StatusCode(HttpStatusCode.NoContent);
             }
-            //add.Links = category.CreateLinks(BaseUrl, "GetOne");
+            address.Links = address.CreateLinks(BaseUrl);
             return Ok(address);
         }
 

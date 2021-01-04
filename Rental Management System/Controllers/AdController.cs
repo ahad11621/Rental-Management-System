@@ -23,17 +23,17 @@ namespace Rental_Management_System.Controllers
             return Ok(adRepo.GetAllAd().ToList());
         }
 
-
+        //Get one ad by id
         [Route("{id}", Name = "GetAdById")]
-        public IHttpActionResult Get(int id)//Get one ad by id
+        public IHttpActionResult Get(int id)
         {
-            //BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
+            BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
             var ad = adRepo.Get(id);
             if (ad == null)
             {
                 return StatusCode(HttpStatusCode.NoContent);
             }
-            //category.Links = category.CreateLinks(BaseUrl, "GetOne");
+            ad.Links = ad.CreateLinks(BaseUrl);
             return Ok(ad);
         }
 

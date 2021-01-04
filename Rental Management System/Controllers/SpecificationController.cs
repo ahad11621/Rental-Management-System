@@ -17,7 +17,7 @@ namespace Rental_Management_System.Controllers
 
         //Show all Specification
         [Route("")]
-        public IHttpActionResult Get() //Get all Ad
+        public IHttpActionResult Get()
         {
             return Ok(specificationRipo.GetAll());
         }
@@ -26,13 +26,13 @@ namespace Rental_Management_System.Controllers
         [Route("{id}", Name = "GetSpecificationById")]
         public IHttpActionResult Get(int id)
         {
-            //BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
+            BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
             var specification = specificationRipo.Get(id);
             if (specification == null)
             {
                 return StatusCode(HttpStatusCode.NoContent);
             }
-            //add.Links = category.CreateLinks(BaseUrl, "GetOne");
+            specification.Links = specification.CreateLinks(BaseUrl);
             return Ok(specification);
         }
 
