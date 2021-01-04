@@ -13,14 +13,14 @@ namespace Rental_Management_System.Controllers
     public class AdController : BaseController
     {
         AddressRepository addressRepo = new AddressRepository();
-        AdRepository adRipo = new AdRepository();
-        SpecificationRepository specificationRipo = new SpecificationRepository();
-        UserRepository userRipo = new UserRepository();
+        AdRepository adRepo = new AdRepository();
+        SpecificationRepository specificationRepo = new SpecificationRepository();
+        UserRepository userRepo = new UserRepository();
 
         [Route("")]
         public IHttpActionResult Get() //Get all Ad
         {
-            return Ok(adRipo.GetAllAd().ToList());
+            return Ok(adRepo.GetAllAd().ToList());
         }
 
 
@@ -28,7 +28,7 @@ namespace Rental_Management_System.Controllers
         public IHttpActionResult Get(int id)//Get one ad by id
         {
             //BaseUrl = Request.RequestUri.Scheme + "://" + Request.RequestUri.Host + ":" + Request.RequestUri.Port;
-            var ad = adRipo.Get(id);
+            var ad = adRepo.Get(id);
             if (ad == null)
             {
                 return StatusCode(HttpStatusCode.NoContent);
@@ -46,7 +46,7 @@ namespace Rental_Management_System.Controllers
             var thisAddress = addressRepo.GetAll().Where(x => x.AddressId == LastAddressId).FirstOrDefault();
             UserIdFromAddress = thisAddress.UserId;
 
-            LastSpecificationId = specificationRipo.GetAll().Max(x => x.SpecId);
+            LastSpecificationId = specificationRepo.GetAll().Max(x => x.SpecId);
 
             ad.UserId = UserIdFromAddress;
             ad.SpecId = LastSpecificationId;
@@ -54,7 +54,7 @@ namespace Rental_Management_System.Controllers
             ad.Status = 0;
             ad.Availability = 1;
 
-            adRipo.Insert(ad);
+            adRepo.Insert(ad);
             string uri = Url.Link("GetAdById", new { id = ad.AdId });
             return Created(uri, ad);
         }
@@ -65,7 +65,7 @@ namespace Rental_Management_System.Controllers
         {
             specification.SpecId = sid;
 
-            specificationRipo.Update(specification);
+            specificationRepo.Update(specification);
             return Ok(specification);
         }
 
@@ -78,11 +78,16 @@ namespace Rental_Management_System.Controllers
             addressRepo.Update(address);
             return Ok(address);
         }
-        //[Route("{id}")]
-        //public IHttpActionResult Delete(int id)
-        //{
-        //    categoryRipository.Delete(id);
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
+
+        //Delete Ad
+        [Route("{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var Ad = adRepo.Get(id);
+            adRepo.Delete(id);
+            specificationRepo.Delete(Ad.SpecId);
+            addressRepo.Delete(Ad.AddressId);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
     }
 }
