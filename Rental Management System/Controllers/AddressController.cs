@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace Rental_Management_System.Controllers
 {
-    [RoutePrefix("api/address")]
+    [RoutePrefix("api/addresses")]
     public class AddressController : BaseController
     {
         AddressRepository addressRepo = new AddressRepository();
@@ -43,5 +43,6 @@ namespace Rental_Management_System.Controllers
             string uri = Url.Link("GetAddressById", new { id = address.AddressId });
             return Created(uri, address);
         }
+
     }
 }

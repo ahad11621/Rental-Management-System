@@ -59,13 +59,25 @@ namespace Rental_Management_System.Controllers
             return Created(uri, ad);
         }
 
-        //[Route("{id}")]
-        //public IHttpActionResult Put([FromUri] int id, [FromBody] Category category)
-        //{
-        //    category.CategoryId = id;
-        //    categoryRipository.Update(category);
-        //    return Ok(category);
-        //}
+        //Update Ad's Specifaction
+        [Route("{id}/specifications/{sid}")]
+        public IHttpActionResult PutSpecification([FromUri] int sid, [FromBody] Specification specification)
+        {
+            specification.SpecId = sid;
+
+            specificationRipo.Update(specification);
+            return Ok(specification);
+        }
+
+        //Update Ad's Address
+        [Route("{id}/addresses/{aid}")]
+        public IHttpActionResult PutAddress([FromUri] int aid, [FromBody] Address address)
+        {
+            address.AddressId = aid;
+
+            addressRepo.Update(address);
+            return Ok(address);
+        }
         //[Route("{id}")]
         //public IHttpActionResult Delete(int id)
         //{
