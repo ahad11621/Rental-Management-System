@@ -58,9 +58,9 @@ namespace Rental_Management_System.Models
     {
         public List<Link> Links = new List<Link>();
 
-        public Ad Another()
+        public Address Another()
         {
-            return new Ad()
+            return new Address()
             {
                 Links = this.Links,
                 AddressId = this.AddressId
@@ -107,9 +107,9 @@ namespace Rental_Management_System.Models
     {
         public List<Link> Links = new List<Link>();
 
-        public Ad Another()
+        public Specification Another()
         {
-            return new Ad()
+            return new Specification()
             {
                 Links = this.Links,
                 SpecId = this.SpecId
