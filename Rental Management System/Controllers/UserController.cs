@@ -12,10 +12,10 @@ namespace Rental_Management_System.Controllers
     public class UserController : ApiController
     {
         AdRepository adRepo = new AdRepository();
-        UserRepository userRepo = new UserRepository();
+
 
         [Route("{id}/ads")]
-        public IHttpActionResult GetAdsbyUserId([FromUri] int id)
+        public IHttpActionResult GetAdbyUserId([FromUri] int id)
         {
             return Ok(adRepo.GetAdsByUserId(id));
         }
