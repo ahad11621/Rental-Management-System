@@ -41,18 +41,13 @@ namespace Rental_Management_System.Controllers
         [Route("")]
         public IHttpActionResult Post(Ad ad)
         {
-            LastAddressId = addressRepo.GetAll().Max(x => x.AddressId);
+            var LastAddressID = addressRepo.GetAll().Max(x => x.AddressId);
 
-            var thisAddress = addressRepo.GetAll().Where(x => x.AddressId == LastAddressId).FirstOrDefault();
-            UserIdFromAddress = thisAddress.UserId;
+            var thisAddress = addressRepo.GetAll().Where(x => x.AddressId == LastAddressID).FirstOrDefault();
 
-            LastSpecificationId = specificationRepo.GetAll().Max(x => x.SpecId);
-
-            ad.UserId = UserIdFromAddress;
-            ad.SpecId = LastSpecificationId;
-            ad.AddressId = LastAddressId;
-            ad.Status = 0;
-            ad.Availability = 1;
+            ad.UserId = thisAddress.UserId;
+            ad.SpecId = specificationRepo.GetAll().Max(x => x.SpecId);
+            ad.AddressId = addressRepo.GetAll().Max(x => x.AddressId);
 
             adRepo.Insert(ad);
             string uri = Url.Link("GetAdById", new { id = ad.AdId });
