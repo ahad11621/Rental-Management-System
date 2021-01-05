@@ -8,7 +8,7 @@ namespace Rental_Management_System.Repositories
 {
     public class UserRepository: Repository<User>
     {
-        //Mim
+        //Admin
         public User CheckLogin(String uname, String pass)
         {
 
@@ -25,5 +25,6 @@ namespace Rental_Management_System.Repositories
         {
             return this.GetAll().Where(x => x.Type == 1 && x.Name.Contains(find)).ToList();
         }
+        
     }
 }

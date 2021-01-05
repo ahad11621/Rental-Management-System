@@ -8,14 +8,14 @@ namespace Rental_Management_System.Repositories
 {
     public class AdRepository : Repository<Ad>
     {
-        //Ahad
+        //User
         public IEnumerable<Ad> GetAllAd()
         {
             return this.GetAll().Where(x => x.Status == 1).ToList();
 
         }
 
-        //Mim
+        //Admin
         public IEnumerable<Ad> GetAcceptedAd()
         {
             return this.GetAll().Where(x => x.Status == 1).ToList();

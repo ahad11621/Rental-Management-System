@@ -1,4 +1,5 @@
-﻿using Rental_Management_System.Models;
+﻿using Rental_Management_System.Attributes;
+using Rental_Management_System.Models;
 using Rental_Management_System.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Rental_Management_System.Controllers
 {
     public class LoginController : ApiController
     {
+        UserAuthenticationAttribute authentication = new UserAuthenticationAttribute();
         UserRepository userRepo = new UserRepository();
         [Route("api/login")]
         public IHttpActionResult Post(User user)
@@ -18,7 +20,7 @@ namespace Rental_Management_System.Controllers
             var log = userRepo.CheckLogin(user.UserName, user.Password);
             if (log != null)
             {
-
+                authentication.getUserType(log.Type);
                 return Ok(log);
             }
             else

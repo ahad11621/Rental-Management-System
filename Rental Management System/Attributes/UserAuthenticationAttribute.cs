@@ -10,10 +10,12 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
+
 namespace Rental_Management_System.Attributes
 {
     public class UserAuthenticationAttribute: AuthorizationFilterAttribute
     {
+        public int userType;
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             base.OnAuthorization(actionContext);
@@ -23,20 +25,19 @@ namespace Rental_Management_System.Attributes
             }
             else
             {
-                string encodedString = actionContext.Request.Headers.Authorization.Parameter;
-                string decodedString = Encoding.UTF8.GetString(Convert.FromBase64String(encodedString));
-                string[] splittedText = decodedString.Split(new Char[] { ':' });
-                string username = splittedText[0];
-                string password = splittedText[1];
-                if (username == "admin" && password == "123")
+                if (userType == 1)
                 {
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userType.ToString()), null);
                 }
                 else
                 {
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
                 }
             }
+        }
+        public void getUserType(int t)
+        {
+            userType = t;
         }
     }
 }
