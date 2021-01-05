@@ -1,4 +1,5 @@
-﻿using Rental_Management_System.Models;
+﻿using Rental_Management_System.Attributes;
+using Rental_Management_System.Models;
 using Rental_Management_System.Repositories;
 using System;
 using System.Collections.Generic;

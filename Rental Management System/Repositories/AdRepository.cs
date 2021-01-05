@@ -38,5 +38,12 @@ namespace Rental_Management_System.Repositories
             return this.GetAll().Where(x => x.Status == 0 && x.AdId == id).FirstOrDefault();
 
         }
+
+        //user
+        public IEnumerable<Ad> GetAdsByUserId(int id)
+        {
+            return this.GetAll().Where(x => x.UserId == id).ToList();
+
+        }
     }
 }
